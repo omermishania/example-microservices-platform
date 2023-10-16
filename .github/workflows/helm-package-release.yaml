@@ -20,6 +20,10 @@ jobs:
       - name: Set CHART_VERSION
         run: echo "CHART_VERSION=$(grep 'version:' ${{ github.workspace }}/Chart.yaml | tail -n1 | awk '{ print $2 }')" >> $GITHUB_ENV
 
+      - name: Test
+        run: echo ${{ env.CHART_VERSION }}
+
+      
       - name: Login to Helm registry
         run: |
           helm registry login ${{ env.REGISTRY }} --username ${{ github.actor }} --password ${{ secrets.GH_TOKEN }}
