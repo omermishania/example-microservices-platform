@@ -24,10 +24,15 @@ jobs:
         run: |
           helm registry login ${{ env.REGISTRY }} --username ${{ github.actor }} --password ${{ secrets.GH_TOKEN }}
 
+      - name: Helm dependency update
+        run: |
+          helm dependency update
+          
       - name: save Helm package to local registry
         run: |
-          helm package ${{ github.workspace }}/deployment
+          helm package ${{ github.workspace }}
 
+          
       - name: Upload Helm package to remote registry
         run: |
           helm push ${{ github.event.repository.name }}-${{ env.CHART_VERSION }}.tgz ${{ env.REMOTE_DEST }}

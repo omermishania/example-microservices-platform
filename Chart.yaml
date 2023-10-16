@@ -24,7 +24,7 @@ version: 0.0.1
 appVersion: "0.0.1"
 dependencies:
   - name: example-service-1
-    repository: "oci://ghcr.io/omermishania/example-service-1"
+    repository: "oci://ghcr.io/omermishania"
     version: "0.0.1"
 
   # - name: example-service-2
