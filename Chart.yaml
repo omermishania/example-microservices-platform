@@ -27,14 +27,14 @@ dependencies:
     repository: "oci://ghcr.io/omermishania"
     version: "0.0.1"
 
-  # - name: example-service-2
-  #   repository: "https://wib.jfrog.io/artifactory/api/helm/wib-packages"
-  #   version: "0.0.1"
+  - name: example-service-2
+    repository: "oci://ghcr.io/omermishania"
+    version: "0.0.1"
 
-  # - name: example-service-3
-  #   repository: "https://wib.jfrog.io/artifactory/api/helm/wib-packages"
-  #   version: "0.0.1"
+  - name: example-service-3
+    repository: "oci://ghcr.io/omermishania"
+    version: "0.0.1"
 
-  # - name: example-service-4
-  #   repository: "https://wib.jfrog.io/artifactory/api/helm/wib-packages"
-  #   version: "0.0.1"
+  - name: example-service-4
+    repository: "oci://ghcr.io/omermishania"
+    version: "0.0.1"
