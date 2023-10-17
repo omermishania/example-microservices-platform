@@ -1,0 +1,14 @@
+global:
+  appName: &globalAppName modified-name
+
+example-service-1:
+  appName: *globalAppName
+
+example-service-2:
+  appName: *globalAppName
+
+example-service-3:
+  appName: *globalAppName
+
+example-service-4:
+  appName: *globalAppName

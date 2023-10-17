@@ -1,0 +1,15 @@
+dependencies:
+- name: example-service-1
+  repository: oci://ghcr.io/omermishania
+  version: 0.0.1
+- name: example-service-2
+  repository: oci://ghcr.io/omermishania
+  version: 0.0.1
+- name: example-service-3
+  repository: oci://ghcr.io/omermishania
+  version: 0.0.1
+- name: example-service-4
+  repository: oci://ghcr.io/omermishania
+  version: 0.0.1
+digest: sha256:b0853787f0dc874b2c57c78c4736eced6ca9586aaef4ad35ac656f1463e25914
+generated: "2023-10-17T15:15:05.981632+03:00"
