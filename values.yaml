@@ -3,3 +3,13 @@ global:
   pullSecret: ghcr-login-secret
 tags:
   test: true
+services:
+  - name: example-service-1
+    repository: "https://github.com/omermishania/example-service-1"
+    branch: "new-arch"
+  - name: example-service-2
+    repository: "https://github.com/omermishania/example-service-2"
+    branch: "new-arch"
+  - name: example-service-3
+    repository: "https://github.com/omermishania/example-service-3"
+    branch: "new-arch"
