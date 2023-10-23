@@ -1,5 +1,5 @@
 global:
-  appName: test
+  appName: test-2
   pullSecret: ghcr-login-secret
 tags:
   test: true
