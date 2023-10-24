@@ -22,21 +22,3 @@ version: 0.0.10
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 appVersion: "0.0.9"
-dependencies:
-  - name: example-service-1
-    repository: "oci://ghcr.io/omermishania"
-    version: "0.0.3"
-    tags:
-      - test
-
-  - name: example-service-2
-    repository: "oci://ghcr.io/omermishania"
-    version: "0.0.3"
-
-  - name: example-service-3
-    repository: "oci://ghcr.io/omermishania"
-    version: "0.0.3"
-
-  - name: example-service-4
-    repository: "oci://ghcr.io/omermishania"
-    version: "0.0.3"
