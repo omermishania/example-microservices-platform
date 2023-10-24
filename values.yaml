@@ -1,18 +1,29 @@
 global:
   appName: another-test
   pullSecret: ghcr-login-secret
-tags:
-  test: true
+  kafka:
+    topics:
+      trafficInspectionServer:
+        incidentDiscovery:
+          incidents:
+            name: &traffic-inspection-server-incident-discovery-name "incidents.updated.by.id"
+
+envs:
+  dev:
+    targetRevision: develop
+  staging:
+    targetRevision: main
+  prod:
+    targetRevision: 1.0.0
+
 services:
   - name: example-service-1
     repository: "https://github.com/omermishania/example-service-1"
-    branch: "new-arch"
   - name: example-service-2
     repository: "https://github.com/omermishania/example-service-2"
-    branch: "new-arch"
   - name: example-service-3
     repository: "https://github.com/omermishania/example-service-3"
-    branch: "new-arch"
+    parameters:
+    -  topic-name: **traffic-inspection-server-incident-discovery-name
   - name: example-service-4
     repository: "https://github.com/omermishania/example-service-4"
-    branch: "new-arch"
