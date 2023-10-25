@@ -9,7 +9,7 @@ spec:
 {{- range .Values.services }}
       - name: {{ .name }}
         repoURL: '{{ .repository }}'
-        targetRevision: '{{ .branch }}'
+        targetRevision: '{{ $.Values.envs.dev.targetRevision }}'
 {{- end }}
   template:
     metadata:
