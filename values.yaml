@@ -1,6 +1,16 @@
 global:
   appName: test
   pullSecret: ghcr-login-secret
+  kafka:
+    topics:
+      category:
+        service:
+            incidents:
+              name: "incidents.updated.by.id"
+            incidentsModificationRequests:
+              name: "incidents-modification.created.by.incident-id"
+            incidentsEnrichment:
+              name: "incidents-enrichment.updated.by.incident-id"
 
 envs:
   dev:
