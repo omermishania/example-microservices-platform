@@ -23,9 +23,7 @@ spec:
         helm:
           values: |
             global:
-{{- range $key, $value := .Values.global }}
-              {{ $key }}: {{ $value | quote }}
-{{- end }}
+{{- toYaml .Values.global | nindent 14 }}
       destination:
         server: 'https://kubernetes.default.svc' # This remains constant as all microservices are deployed to the same cluster
         namespace: 'default' # This remains constant assuming all microservices are deployed in the same namespace
