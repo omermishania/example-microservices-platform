@@ -13,9 +13,13 @@ envs:
 services:
   - name: example-service-1
     repository: "https://github.com/omermishania/example-service-1"
+    targetRevision: develop
   - name: example-service-2
     repository: "https://github.com/omermishania/example-service-2"
+    targetRevision: develop
   - name: example-service-3
     repository: "https://github.com/omermishania/example-service-3"
+    targetRevision: develop
   - name: example-service-4
     repository: "https://github.com/omermishania/example-service-4"
+    targetRevision: develop
