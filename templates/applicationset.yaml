@@ -9,7 +9,7 @@ spec:
 {{- range .Values.services }}
       - name: {{ .name }}
         repoURL: '{{ .repository }}'
-        targetRevision: '{{ .branch }}'
+        targetRevision: '{{ .targetRevision }}'
 {{- end }}
   template:
     metadata:
@@ -23,13 +23,10 @@ spec:
         helm:
           values: |
             global:
-{{- range $key, $value := .Values.global }}
-              {{ $key }}: {{ $value | quote }}
-{{- end }}
+{{- toYaml .Values.global | nindent 14 }}
       destination:
         server: 'https://kubernetes.default.svc' # This remains constant as all microservices are deployed to the same cluster
-        namespace: 'default' # This remains constant assuming all microservices are deployed in the same namespace
+        namespace: {{ .Release.Namespace }} # This remains constant assuming all microservices are deployed in the same namespace
       syncPolicy:
-        automated: # This policy remains constant for all applications generated from this set
-          prune: true
-          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
