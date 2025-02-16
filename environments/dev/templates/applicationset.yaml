@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: {{ .Values.env }}-applicationset
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+  {{- range .Values.services }}
+      - name: {{ .name }}
+        repoURL: '{{ .repository }}'
+        targetRevision: '{{ .targetRevision }}'
+{{- end }}
+
+  template:
+    metadata:
+      name: '{{ .Values.env }}-{{`{{name}}`}}' # This will be replaced by each service's name
+    spec:
+      project: default
+      sources:
+      - repoURL: '{{`{{repoURL}}`}}' # This will be replaced by each service's repo URL
+        targetRevision: '{{`{{targetRevision}}`}}' # This will be replaced by each service's branch
+        path: 'deployment/'
+        helm:
+          valueFiles:
+            - $values/global.yaml
+            - $values/environments/{{ $.Values.env }}/values.yaml
+      - repoURL: 'git@gitlab.com:f5/volterra/ves.io/waap/wayfarer/wib-services.git'
+        targetRevision: main
+        ref: values
+      destination:
+        server: '{{ $.Values.destination_cluster_url }}'
+        namespace: '{{ $.Values.namespace }}'  # This remains constant assuming all microservices are deployed in the same namespace
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
