@@ -1,0 +1,5 @@
+global:
+  mongodb:
+    adminSecretName: mongodb-admin
+  kafka:
+    topicsConfigmapName: kafka-topics-cm
